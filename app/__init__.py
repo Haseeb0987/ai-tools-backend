@@ -3,7 +3,9 @@ from flask_cors import CORS # type: ignore
 
 def create_app():
     app = Flask(__name__)
-    CORS(app)  # Allow Angular to access APIs
+    # CORS(app)  # Allow Angular to access APIs
+    CORS(app, resources={r"/api/*": {"origins": "*"}})
+
 
     # Register Blueprints
     from .routes.ai_routes import ai_bp
